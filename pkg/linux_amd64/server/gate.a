@@ -1,0 +1,72 @@
+!<arch>
+__.PKGDEF       0           0     0     644     11912     `
+go object linux amd64 go1.6.2 X:none
+build id "c133db322411b71f6a4293551449926fbd5c48bd"
+
+$$
+package gate
+	import internal "server/gate/internal"
+	import gate "github.com/name5566/leaf/gate" // indirect
+	import network "github.com/name5566/leaf/network" // indirect
+	type @"github.com/name5566/leaf/network".Processor interface { Marshal(@"github.com/name5566/leaf/network".msg interface {}) (? [][]byte, ? error); Route(@"github.com/name5566/leaf/network".msg interface {}, @"github.com/name5566/leaf/network".userData interface {}) (? error); Unmarshal(@"github.com/name5566/leaf/network".data []byte) (? interface {}, ? error) }
+	import chanrpc "github.com/name5566/leaf/chanrpc" // indirect
+	type @"github.com/name5566/leaf/chanrpc".RetInfo struct { @"github.com/name5566/leaf/chanrpc".ret interface {}; @"github.com/name5566/leaf/chanrpc".err error; @"github.com/name5566/leaf/chanrpc".cb interface {} }
+	type @"github.com/name5566/leaf/chanrpc".CallInfo struct { @"github.com/name5566/leaf/chanrpc".f interface {}; @"github.com/name5566/leaf/chanrpc".args []interface {}; @"github.com/name5566/leaf/chanrpc".chanRet chan *@"github.com/name5566/leaf/chanrpc".RetInfo; @"github.com/name5566/leaf/chanrpc".cb interface {} }
+	type @"github.com/name5566/leaf/chanrpc".Client struct { @"github.com/name5566/leaf/chanrpc".s *@"github.com/name5566/leaf/chanrpc".Server; @"github.com/name5566/leaf/chanrpc".chanSyncRet chan *@"github.com/name5566/leaf/chanrpc".RetInfo; ChanAsynRet chan *@"github.com/name5566/leaf/chanrpc".RetInfo; @"github.com/name5566/leaf/chanrpc".pendingAsynCall int }
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·1 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x9") AsynCall (@"github.com/name5566/leaf/chanrpc".idÂ·2 interface {}, @"github.com/name5566/leaf/chanrpc"._argsÂ·3 ...interface {})
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·1 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") Attach (@"github.com/name5566/leaf/chanrpc".sÂ·2 *@"github.com/name5566/leaf/chanrpc".Server) { @"github.com/name5566/leaf/chanrpc".cÂ·1.@"github.com/name5566/leaf/chanrpc".s = @"github.com/name5566/leaf/chanrpc".sÂ·2 }
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·2 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x9") Call0 (@"github.com/name5566/leaf/chanrpc".idÂ·3 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·4 ...interface {}) (? error)
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·3 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x9") Call1 (@"github.com/name5566/leaf/chanrpc".idÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·5 ...interface {}) (? interface {}, ? error)
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·3 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x9") CallN (@"github.com/name5566/leaf/chanrpc".idÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·5 ...interface {}) (? []interface {}, ? error)
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·1 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") Cb (@"github.com/name5566/leaf/chanrpc".riÂ·2 *@"github.com/name5566/leaf/chanrpc".RetInfo "esc:0x9")
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·1 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") Close ()
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·2 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") Idle () (? bool) { return @"github.com/name5566/leaf/chanrpc".cÂ·2.@"github.com/name5566/leaf/chanrpc".pendingAsynCall == int(0x0) }
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·1 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x9") @"github.com/name5566/leaf/chanrpc".asynCall (@"github.com/name5566/leaf/chanrpc".idÂ·2 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·3 []interface {}, @"github.com/name5566/leaf/chanrpc".cbÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".nÂ·5 int)
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·2 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") @"github.com/name5566/leaf/chanrpc".call (@"github.com/name5566/leaf/chanrpc".ciÂ·3 *@"github.com/name5566/leaf/chanrpc".CallInfo, @"github.com/name5566/leaf/chanrpc".blockÂ·4 bool) (@"github.com/name5566/leaf/chanrpc".errÂ·1 error)
+	func (@"github.com/name5566/leaf/chanrpc".cÂ·3 *@"github.com/name5566/leaf/chanrpc".Client "esc:0x1") @"github.com/name5566/leaf/chanrpc".f (@"github.com/name5566/leaf/chanrpc".idÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".nÂ·5 int) (@"github.com/name5566/leaf/chanrpc".fÂ·1 interface {}, @"github.com/name5566/leaf/chanrpc".errÂ·2 error)
+	type @"github.com/name5566/leaf/chanrpc".Server struct { @"github.com/name5566/leaf/chanrpc".functions map[interface {}]interface {}; ChanCall chan *@"github.com/name5566/leaf/chanrpc".CallInfo }
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·2 *@"github.com/name5566/leaf/chanrpc".Server) Call0 (@"github.com/name5566/leaf/chanrpc".idÂ·3 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·4 ...interface {}) (? error)
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·3 *@"github.com/name5566/leaf/chanrpc".Server) Call1 (@"github.com/name5566/leaf/chanrpc".idÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·5 ...interface {}) (? interface {}, ? error)
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·3 *@"github.com/name5566/leaf/chanrpc".Server) CallN (@"github.com/name5566/leaf/chanrpc".idÂ·4 interface {}, @"github.com/name5566/leaf/chanrpc".argsÂ·5 ...interface {}) (? []interface {}, ? error)
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·1 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") Close ()
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·1 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") Exec (@"github.com/name5566/leaf/chanrpc".ciÂ·2 *@"github.com/name5566/leaf/chanrpc".CallInfo "esc:0x9")
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·1 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") Go (@"github.com/name5566/leaf/chanrpc".idÂ·2 interface {} "esc:0x1", @"github.com/name5566/leaf/chanrpc".argsÂ·3 ...interface {})
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·2 *@"github.com/name5566/leaf/chanrpc".Server) Open (@"github.com/name5566/leaf/chanrpc".lÂ·3 int) (? *@"github.com/name5566/leaf/chanrpc".Client) { var @"github.com/name5566/leaf/chanrpc".cÂ·4 *@"github.com/name5566/leaf/chanrpc".Client; ; @"github.com/name5566/leaf/chanrpc".cÂ·4 = @"github.com/name5566/leaf/chanrpc".NewClient(@"github.com/name5566/leaf/chanrpc".lÂ·3); @"github.com/name5566/leaf/chanrpc".cÂ·4.Attach(@"github.com/name5566/leaf/chanrpc".sÂ·2); return @"github.com/name5566/leaf/chanrpc".cÂ·4 }
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·1 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") Register (@"github.com/name5566/leaf/chanrpc".idÂ·2 interface {}, @"github.com/name5566/leaf/chanrpc".fÂ·3 interface {})
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·2 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") @"github.com/name5566/leaf/chanrpc".exec (@"github.com/name5566/leaf/chanrpc".ciÂ·3 *@"github.com/name5566/leaf/chanrpc".CallInfo "esc:0x9") (@"github.com/name5566/leaf/chanrpc".errÂ·1 error)
+	func (@"github.com/name5566/leaf/chanrpc".sÂ·2 *@"github.com/name5566/leaf/chanrpc".Server "esc:0x1") @"github.com/name5566/leaf/chanrpc".ret (@"github.com/name5566/leaf/chanrpc".ciÂ·3 *@"github.com/name5566/leaf/chanrpc".CallInfo "esc:0x9", @"github.com/name5566/leaf/chanrpc".riÂ·4 *@"github.com/name5566/leaf/chanrpc".RetInfo) (@"github.com/name5566/leaf/chanrpc".errÂ·1 error)
+	import time "time" // indirect
+	type @"time".Duration int64
+	func (@"time".dÂ·2 @"time".Duration) Hours () (? float64) { var @"time".hourÂ·3 @"time".Duration; ; @"time".hourÂ·3 = @"time".dÂ·2 / @"time".Duration(0x34630b8a000); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x34630b8a000); return float64(@"time".hourÂ·3) + float64(@"time".nsecÂ·4) * float64(8190022623310637111963488201822504381538623676021880892417778544696899264837610290203272971060556344039023584360473938041055625214280336402169897364226048p-553) }
+	func (@"time".dÂ·2 @"time".Duration) Minutes () (? float64) { var @"time".minÂ·3 @"time".Duration; ; @"time".minÂ·3 = @"time".dÂ·2 / @"time".Duration(0xdf8475800); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0xdf8475800); return float64(@"time".minÂ·3) + float64(@"time".nsecÂ·4) * float64(7678146209353722106395056769533233877065564876941352542109479049699919628723768656821910653339403201031675627614471533358284117434246264392176261853609984p-547) }
+	func (@"time".dÂ·2 @"time".Duration) Nanoseconds () (? int64) { return int64(@"time".dÂ·2) }
+	func (@"time".dÂ·2 @"time".Duration) Seconds () (? float64) { var @"time".secÂ·3 @"time".Duration; ; @"time".secÂ·3 = @"time".dÂ·2 / @"time".Duration(0x3b9aca00); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x3b9aca00); return float64(@"time".secÂ·3) + float64(@"time".nsecÂ·4) * float64(7198262071269114660816079141112770740375861891461678802759824945047098083990024106014198994535558872472104883612039846078596891298747423852523262413111296p-541) }
+	func (@"time".dÂ·2 @"time".Duration) String () (? string)
+	type @"github.com/name5566/leaf/gate".Gate struct { MaxConnNum int; PendingWriteNum int; MaxMsgLen uint32; Processor @"github.com/name5566/leaf/network".Processor; AgentChanRPC *@"github.com/name5566/leaf/chanrpc".Server; WSAddr string; HTTPTimeout @"time".Duration; CertFile string; KeyFile string; TCPAddr string; LenMsgLen int; LittleEndian bool }
+	func (@"github.com/name5566/leaf/gate".gateÂ·1 *@"github.com/name5566/leaf/gate".Gate "esc:0x1") OnDestroy () {  }
+	func (@"github.com/name5566/leaf/gate".gateÂ·1 *@"github.com/name5566/leaf/gate".Gate) Run (@"github.com/name5566/leaf/gate".closeSigÂ·2 chan bool "esc:0x1")
+	type @"server/gate/internal".Module struct { ? *@"github.com/name5566/leaf/gate".Gate }
+	func (@"server/gate/internal".mÂ·1 *@"server/gate/internal".Module "esc:0x1") OnInit () { @"server/gate/internal".mÂ·1.Gate = (&@"github.com/name5566/leaf/gate".Gate{ MaxConnNum:@"server/conf".Server.MaxConnNum, PendingWriteNum:@"server/conf".PendingWriteNum, MaxMsgLen:@"server/conf".MaxMsgLen, WSAddr:@"server/conf".Server.WSAddr, HTTPTimeout:@"server/conf".HTTPTimeout, CertFile:@"server/conf".Server.CertFile, KeyFile:@"server/conf".Server.KeyFile, TCPAddr:@"server/conf".Server.TCPAddr, LenMsgLen:@"server/conf".LenMsgLen, LittleEndian:@"server/conf".LittleEndian, Processor:@"server/msg".Processor, AgentChanRPC:@"server/game".ChanRPC }) }
+	var @"".Module *@"server/gate/internal".Module
+	func @"".init ()
+	func @"github.com/name5566/leaf/chanrpc".NewClient (@"github.com/name5566/leaf/chanrpc".lÂ·2 int) (? *@"github.com/name5566/leaf/chanrpc".Client) { var @"github.com/name5566/leaf/chanrpc".cÂ·3 *@"github.com/name5566/leaf/chanrpc".Client; ; @"github.com/name5566/leaf/chanrpc".cÂ·3 = new(@"github.com/name5566/leaf/chanrpc".Client); @"github.com/name5566/leaf/chanrpc".cÂ·3.@"github.com/name5566/leaf/chanrpc".chanSyncRet = make(chan *@"github.com/name5566/leaf/chanrpc".RetInfo, int(0x1)); @"github.com/name5566/leaf/chanrpc".cÂ·3.ChanAsynRet = make(chan *@"github.com/name5566/leaf/chanrpc".RetInfo, @"github.com/name5566/leaf/chanrpc".lÂ·2); return @"github.com/name5566/leaf/chanrpc".cÂ·3 }
+	import conf "server/conf" // indirect
+	var @"server/conf".Server struct { LogLevel string; LogPath string; WSAddr string; CertFile string; KeyFile string; TCPAddr string; MaxConnNum int; ConsolePort int; ProfilePath string }
+	var @"server/conf".PendingWriteNum int
+	var @"server/conf".MaxMsgLen uint32
+	var @"server/conf".HTTPTimeout @"time".Duration
+	var @"server/conf".LenMsgLen int
+	var @"server/conf".LittleEndian bool
+	import msg "server/msg" // indirect
+	var @"server/msg".Processor @"github.com/name5566/leaf/network".Processor
+	import game "server/game" // indirect
+	var @"server/game".ChanRPC *@"github.com/name5566/leaf/chanrpc".Server
+
+$$
+_go_.o          0           0     0     644     1807      `
+go object linux amd64 go1.6.2 X:none
+
+!
+  go13ld,server/gate/internal.a ş"".init.1      ÃÌÌÌÌÌÌÌÌÌÌÌÌÌÌÌ          TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   z/home/ubuntu/leaf_server/leafserver/src/server/gate/router.goş"".init  À  ÀdH‹%    H;a†   Hƒì¶    €û t¶    €ûuHƒÄÃè    Æ    è    H    H‰$è    H‹\$€=     uH‰    è    Æ    HƒÄÃH-    H‰,$H‰\$è    ëØè    ébÿÿÿÌÌ
+      4  "".initdoneÂ·   L  "".initdoneÂ·   j  "runtime.throwinit   z "".initdoneÂ·   †  2server/gate/internal.init   ”  @type.server/gate/internal.Module   ¦  "runtime.newobject   ¼ (runtime.writeBarrier   Ğ  "".Module   Ú  "".init.1   æ "".initdoneÂ·   €  "".Module   œ  .runtime.writebarrierptr   ª  0runtime.morestack_noctxt          H  G% G% 
+ 4l TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   z/home/ubuntu/leaf_server/leafserver/src/server/gate/router.go~/home/ubuntu/leaf_server/leafserver/src/server/gate/external.goşTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş<"".Module  Btype.*server/gate/internal.Module   ş>"".initdoneÂ·  type.uint8   ş"".init.1Â·f              "".init.1   ş"".initÂ·f              "".init   şHgo.string.hdr."server/gate/internal"                       @go.string."server/gate/internal"   ş@go.string."server/gate/internal" 0  *server/gate/internal  şFgo.importpath.server/gate/internal.                       @go.string."server/gate/internal"   ÿÿgo13ld 
